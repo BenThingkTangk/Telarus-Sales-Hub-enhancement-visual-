@@ -3,132 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atom AI × Telarus — Complete Pitch Visual</title>
+<title>Atom AI × Telarus — Complete Pitch</title>
 <style>
-:root{--p:#7c6cff;--g:#00d4aa;--o:#ff8c42;--b:#00b4d8;--pk:#ff6b9d;--bg:#0a0a14;--card:#0e0e1c;--bdr:#2a2a50;--mt:#666;--gold:#ffd700}
+:root{--p:#7c6cff;--g:#00d4aa;--o:#ff8c42;--b:#00b4d8;--pk:#ff6b9d;--bg:#0a0a14;--cd:#0e0e1c;--bd:#2a2a50;--mt:#666;--gd:#ffd700}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:20px 16px;line-height:1.35}
-.page{max-width:1180px;margin:0 auto}
-.hdr{text-align:center;margin-bottom:16px}
-.hdr .sub{color:#9a8fff;font-size:9px;text-transform:uppercase;letter-spacing:3px;margin-bottom:3px}
-.hdr h1{font-size:26px;font-weight:800}.hdr h1 span{color:var(--p)}
-.hdr p{color:var(--mt);font-size:11px;margin-top:2px}
-.sl{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin:18px 0 8px;padding-bottom:4px;border-bottom:1px solid #1e1e38;display:flex;align-items:center;gap:8px;color:var(--p)}
-.sl.g{color:var(--g);border-color:#0d3a2a}.sl.gold{color:var(--gold);border-color:#3a3000}
-.badge{font-size:7px;padding:2px 8px;border-radius:10px;letter-spacing:1px;color:#fff;display:inline-block}
-.badge.p{background:var(--p)}.badge.g{background:var(--g);color:#000}.badge.gold{background:var(--gold);color:#000}
+body{background:var(--bg);color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:24px 18px;line-height:1.35;font-size:13px}
+.pg{max-width:1200px;margin:0 auto}
+h1{font-size:28px;font-weight:800;text-align:center}h1 span{color:var(--p)}
+.sub{text-align:center;color:#9a8fff;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin-bottom:4px}
+.tagline{text-align:center;color:var(--mt);font-size:12px;margin:3px 0 20px}
+
+/* SECTION HEADERS */
+.sh{display:flex;align-items:center;gap:10px;margin:28px 0 12px;padding-bottom:6px;border-bottom:1px solid #1e1e38}
+.sh h2{font-size:16px;font-weight:700}.sh.a h2{color:var(--p)}.sh.b h2{color:var(--g)}.sh.c h2{color:var(--gd)}
+.badge{font-size:8px;padding:3px 10px;border-radius:12px;letter-spacing:1px;font-weight:700;text-transform:uppercase}
+.badge.a{background:var(--p);color:#fff}.badge.b{background:var(--g);color:#000}.badge.c{background:var(--gd);color:#000}
+.sh-desc{font-size:10px;color:#888;margin:-6px 0 12px}
+
 /* FLOW */
-.flow{display:flex;justify-content:center;gap:4px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
-.fs{background:#161628;border:1px solid #2a2a45;border-radius:6px;padding:6px 12px;font-size:9px;color:#aaa;text-align:center;min-width:100px}
-.fs strong{color:var(--p);display:block;font-size:8px;text-transform:uppercase;letter-spacing:1px;margin-bottom:1px}
-.arr{color:#444;font-size:16px}
-/* 5-CARD GRID */
-.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:4px}
-.cd{background:linear-gradient(150deg,#131228,var(--card));border:1px solid var(--bdr);border-radius:10px;padding:10px 8px 8px;text-align:center;position:relative;overflow:hidden}
-.cd::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:36px;height:2px;border-radius:0 0 3px 3px}
-.cd:nth-child(1)::before{background:var(--p)}.cd:nth-child(2)::before{background:var(--g)}.cd:nth-child(3)::before{background:var(--o)}.cd:nth-child(4)::before{background:var(--b)}.cd:nth-child(5)::before{background:var(--pk)}
-.ico{font-size:18px;margin-bottom:3px}
-.cd h3{font-size:10px;font-weight:700;margin-bottom:1px}
-.tg{font-size:8px;color:var(--mt);line-height:1.2;margin-bottom:6px}
-.en{background:#0b0b18;border:1px solid #22224a;border-radius:5px;padding:5px}
-.en-l{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px}
-.en p{font-size:8px;color:#aaa;line-height:1.3;margin:1px 0}.en b{color:var(--p);font-weight:600}
-.cx{display:flex;justify-content:space-between;align-items:center;margin-top:4px;padding-top:3px;border-top:1px dashed #2a2a50}
-.cx .am{color:var(--g);font-weight:800;font-size:10px}.cx .pc{color:#555;font-size:8px}
-/* CAPEX SUMMARY */
-.cxs{display:flex;justify-content:center;gap:16px;align-items:center;padding:10px;border:1px solid rgba(0,212,170,.2);border-radius:10px;background:linear-gradient(135deg,#0a1a14,var(--bg));margin-bottom:4px}
-.cxs .big{font-size:24px;font-weight:800;color:var(--g)}.cxs .det{font-size:9px;color:#888;line-height:1.4}.cxs .det strong{color:#fff}
-/* SUBSCRIPTION TIERS */
-.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:4px}
-.tr{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:10px 8px;text-align:left;position:relative}
-.tr.rec{border-color:var(--p);box-shadow:0 0 14px rgba(124,108,255,.1)}
-.rec-b{position:absolute;top:8px;right:8px;background:var(--p);color:#fff;font-size:6px;padding:1px 6px;border-radius:8px;text-transform:uppercase;letter-spacing:.8px}
-.tr h4{font-size:11px;font-weight:700;margin-bottom:1px;text-align:center}
-.tr .pr{color:var(--p);font-size:16px;font-weight:800;text-align:center;margin:3px 0 1px}
-.tr .pr small{font-size:8px;color:#888;font-weight:400}
-.tr .ann{font-size:8px;color:#555;text-align:center;margin-bottom:5px}
-.tr .tgt{font-size:8px;color:var(--o);margin-bottom:5px;text-align:center;font-style:italic}
-.tr ul{list-style:none;padding:0;margin:0}
-.tr ul li{font-size:8px;color:#aaa;padding:2px 0 2px 10px;position:relative;line-height:1.3}
-.tr ul li::before{content:'›';position:absolute;left:0;color:var(--p);font-weight:700}
-.tr .gm{font-size:7px;color:#555;margin-top:5px;text-align:center;border-top:1px solid #1e1e38;padding-top:4px}
-.tr .gm span{color:var(--g)}
-.tr .mods{margin-top:4px;padding-top:4px;border-top:1px dashed #1e1e38}
-.tr .mods-l{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
-.tr .mods span{font-size:7px;color:var(--g)}
-/* HYBRID */
-.hyb{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:4px}
-.hyb-box{border:1px solid var(--bdr);border-radius:10px;padding:12px;background:var(--card);position:relative}
-.hyb-box.hl{border-color:var(--gold);box-shadow:0 0 14px rgba(255,215,0,.08)}
-.hyb-box h3{font-size:12px;margin-bottom:6px;text-align:center}
-.hyb-box.a h3{color:var(--p)}.hyb-box.b h3{color:var(--g)}.hyb-box.c h3{color:var(--gold)}
-.hyb-box table{width:100%;border-collapse:collapse}
-.hyb-box td{font-size:8px;padding:3px 0;color:#aaa;border-bottom:1px solid #1a1a30;vertical-align:top}
-.hyb-box td:first-child{color:#666;width:38%}
-.hyb-box td strong{color:#fff}
-.hyb-box .tag{text-align:center;margin-top:6px;font-size:7px;color:#555;font-style:italic}
-/* BOTTOM */
-.bot{text-align:center;padding:10px 16px;border:1px solid #1e1e38;border-radius:10px;background:var(--card);margin-bottom:8px}
+.flow{display:flex;justify-content:center;gap:5px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.fs{background:#161628;border:1px solid #2a2a45;border-radius:7px;padding:7px 14px;font-size:10px;color:#aaa;text-align:center;min-width:108px}
+.fs strong{color:var(--p);display:block;font-size:9px;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.arr{color:#444;font-size:17px}
+
+/* 5 MODULE GRID */
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+.mc{background:linear-gradient(150deg,#131228,var(--cd));border:1px solid var(--bd);border-radius:11px;padding:12px 9px 9px;text-align:center;position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:40px;height:3px;border-radius:0 0 4px 4px}
+.mc:nth-child(1)::before{background:var(--p)}.mc:nth-child(2)::before{background:var(--g)}.mc:nth-child(3)::before{background:var(--o)}.mc:nth-child(4)::before{background:var(--b)}.mc:nth-child(5)::before{background:var(--pk)}
+.mc .ico{font-size:20px;margin-bottom:4px}
+.mc h3{font-size:11px;font-weight:700;margin-bottom:2px}
+.mc .tg{font-size:8px;color:var(--mt);line-height:1.25;margin-bottom:7px}
+.mc .en{background:#0b0b18;border:1px solid #22224a;border-radius:6px;padding:6px}
+.mc .en-l{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
+.mc .en p{font-size:8px;color:#aaa;line-height:1.3;margin:1px 0}.mc .en b{color:var(--p)}
+
+/* ══════════════════════════════════════ */
+/* OPTION A: SUBSCRIPTION TIERS         */
+/* ══════════════════════════════════════ */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px}
+.t{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:14px 10px 10px;position:relative}
+.t.rec{border-color:var(--p);box-shadow:0 0 16px rgba(124,108,255,.12)}
+.t.rec2{border-color:var(--g);box-shadow:0 0 16px rgba(0,212,170,.1)}
+.rec-tag{position:absolute;top:8px;right:8px;font-size:6px;padding:2px 7px;border-radius:8px;text-transform:uppercase;letter-spacing:.8px;font-weight:700}
+.rec-tag.pov{background:var(--p);color:#fff}
+.rec-tag.full{background:var(--g);color:#000}
+.t h4{font-size:12px;font-weight:800;text-align:center;margin-bottom:2px}
+.t .price{color:var(--p);font-size:20px;font-weight:800;text-align:center;margin:4px 0 2px}
+.t .price small{font-size:9px;color:#888;font-weight:400}
+.t .ann{font-size:8px;color:#555;text-align:center;margin-bottom:4px}
+.t .tgt{font-size:8px;color:var(--o);text-align:center;font-style:italic;margin-bottom:6px}
+.t ul{list-style:none;padding:0}
+.t li{font-size:8px;color:#bbb;padding:2px 0 2px 12px;position:relative;line-height:1.35}
+.t li::before{content:'›';position:absolute;left:1px;color:var(--p);font-weight:700}
+.t li.hl{color:var(--g);font-weight:600}
+.t .gm{font-size:7px;color:#555;margin-top:6px;text-align:center;border-top:1px solid #1e1e38;padding-top:5px}
+.t .gm strong{color:var(--g)}
+.t .mods{margin-top:5px;padding-top:5px;border-top:1px dashed #1e1e38;text-align:center}
+.t .mods-h{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.t .mods span{font-size:7px;color:var(--g);line-height:1.5}
+
+/* NRR PACKAGES */
+.nrr{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:6px}
+.nr{background:var(--cd);border:1px solid var(--bd);border-radius:8px;padding:8px;text-align:center}
+.nr h5{font-size:9px;font-weight:700;margin-bottom:2px;color:var(--p)}
+.nr .np{font-size:12px;font-weight:800;color:#fff;margin:2px 0}
+.nr .nd{font-size:7px;color:#888;line-height:1.3}
+
+/* ══════════════════════════════════════ */
+/* OPTION B: CAPEX                       */
+/* ══════════════════════════════════════ */
+.cx-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:8px}
+.cx-card{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:10px;text-align:center}
+.cx-card h5{font-size:10px;font-weight:700;margin-bottom:3px}
+.cx-card .amt{font-size:16px;font-weight:800;color:var(--g);margin:3px 0}
+.cx-card .pct{font-size:9px;color:#888;margin-bottom:5px}
+.cx-card .del{font-size:7px;color:#aaa;line-height:1.4;text-align:left}
+.cx-total{display:flex;justify-content:center;gap:20px;align-items:center;padding:12px;border:1px solid rgba(0,212,170,.2);border-radius:10px;background:linear-gradient(135deg,#0a1a14,var(--bg));margin-bottom:8px}
+.cx-total .big{font-size:28px;font-weight:800;color:var(--g)}
+.cx-total .info{font-size:9px;color:#888;line-height:1.5}.cx-total .info strong{color:#fff}
+
+/* ══════════════════════════════════════ */
+/* OPTION C: HYBRID                      */
+/* ══════════════════════════════════════ */
+.hyb{border:2px solid var(--gd);border-radius:14px;padding:16px;background:linear-gradient(135deg,#141410,var(--bg));margin-bottom:12px;position:relative}
+.hyb-rec{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gd);color:#000;font-size:8px;font-weight:800;padding:3px 14px;border-radius:10px;text-transform:uppercase;letter-spacing:1.5px}
+.hyb-steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:stretch;margin:16px 0 12px}
+.hyb-step{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:12px;text-align:center}
+.hyb-step.s1{border-color:var(--p)}.hyb-step.s2{border-color:var(--gd)}.hyb-step.s3{border-color:var(--g)}
+.hyb-step .phase{font-size:7px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.hyb-step.s1 .phase{color:var(--p)}.hyb-step.s2 .phase{color:var(--gd)}.hyb-step.s3 .phase{color:var(--g)}
+.hyb-step h4{font-size:13px;font-weight:800;margin-bottom:2px}
+.hyb-step .hp{font-size:18px;font-weight:800;margin:4px 0}
+.hyb-step.s1 .hp{color:var(--p)}.hyb-step.s2 .hp{color:var(--gd)}.hyb-step.s3 .hp{color:var(--g)}
+.hyb-step .hp small{font-size:9px;color:#888;font-weight:400}
+.hyb-step .dur{font-size:8px;color:var(--o);margin-bottom:6px}
+.hyb-step ul{list-style:none;padding:0;text-align:left}
+.hyb-step li{font-size:8px;color:#bbb;padding:2px 0 2px 10px;position:relative;line-height:1.3}
+.hyb-step li::before{content:'›';position:absolute;left:0;color:var(--gd);font-weight:700}
+.hyb-arrow{display:flex;align-items:center;justify-content:center;color:var(--gd);font-size:24px;font-weight:200}
+.hyb-or{text-align:center;margin:8px 0;font-size:10px;color:#888}
+.hyb-or strong{color:var(--gd)}
+.hyb-alt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hyb-alt-box{border:1px solid var(--bd);border-radius:10px;padding:10px;background:var(--cd);text-align:center}
+.hyb-alt-box h5{font-size:10px;margin-bottom:3px}
+.hyb-alt-box.a h5{color:var(--gd)}.hyb-alt-box.b h5{color:var(--g)}
+.hyb-alt-box .ap{font-size:16px;font-weight:800;margin:2px 0}
+.hyb-alt-box.a .ap{color:var(--gd)}.hyb-alt-box.b .ap{color:var(--g)}
+.hyb-alt-box .ap small{font-size:8px;color:#888;font-weight:400}
+.hyb-alt-box p{font-size:8px;color:#aaa;line-height:1.3}
+.hyb-alt-box p strong{color:#fff}
+
+/* COMPARISON TABLE */
+.cmp{width:100%;border-collapse:collapse;margin-bottom:12px;font-size:9px}
+.cmp th{background:#161628;color:var(--p);font-size:8px;text-transform:uppercase;letter-spacing:1px;padding:6px 8px;text-align:left;border-bottom:1px solid var(--bd)}
+.cmp th.a{color:var(--p)}.cmp th.b{color:var(--g)}.cmp th.c{color:var(--gd)}
+.cmp td{padding:5px 8px;border-bottom:1px solid #1a1a30;color:#aaa}
+.cmp td:first-child{color:#888;font-weight:600}
+.cmp td strong{color:#fff}
+.cmp tr:hover td{background:#111124}
+
+/* FOOTER */
+.bot{text-align:center;padding:12px 18px;border:1px solid #1e1e38;border-radius:10px;background:var(--cd);margin-bottom:8px}
 .bot p{font-size:10px;color:#999;line-height:1.6}.bot strong{color:#fff}
-.ft{text-align:center;font-size:8px;color:#444;letter-spacing:1px}
-</style>
-</head>
-<body>
-<div class="page">
-
-<!-- HEADER -->
-<div class="hdr">
-  <div class="sub">Telarus Sales Hub Enhancement &mdash; Antimatter AI</div>
-  <h1>ATOM AI <span>&times;</span> TELARUS</h1>
-  <p>Three Engagement Models: OpEx Subscription &bull; CapEx Custom Build &bull; Hybrid</p>
-</div>
-
-<!-- SALES LIFECYCLE FLOW -->
-<div class="flow">
-  <div class="fs"><strong>Discovery</strong>SolutionVue + IntentIQ</div><div class="arr">&rarr;</div>
-  <div class="fs"><strong>Design</strong>Service Map + Atom GIS</div><div class="arr">&rarr;</div>
-  <div class="fs"><strong>Quote</strong>GeoQuote + Agentic</div><div class="arr">&rarr;</div>
-  <div class="fs"><strong>Propose</strong>Supplier Matrix + Compare</div><div class="arr">&rarr;</div>
-  <div class="fs"><strong>Execute</strong>Enterprise Governance</div>
-</div>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- SECTION 1: 5 ATOM MODULES + CAPEX BREAKOUT -->
-<!-- ═══════════════════════════════════════════ -->
-<div class="sl g"><span class="badge g">CAPEX</span> Option B &mdash; $3.75M One-Time Custom Build Across 5 Modules</div>
-<div class="g5">
-  <div class="cd">
-    <div class="ico">&#129504;</div><h3>Atom Enterprise</h3>
-    <div class="tg">5-Layer Framework<br>VPC &middot; On-Prem &middot; Edge</div>
-    <div class="en"><div class="en-l">Enhances</div><p><b>Supplier Matrix Pro</b></p><p><b>Service Map</b></p><p>RBAC, audit trails, Akamai edge, model-agnostic, zero-training</p></div>
-    <div class="cx"><div class="am">$1,312,500</div><div class="pc">35%</div></div>
-  </div>
-  <div class="cd">
-    <div class="ico">&#9889;</div><h3>Atom Agentic</h3>
-    <div class="tg">Brain &rarr; Spine &rarr; Worker<br>Voice + Workflow Agents</div>
-    <div class="en"><div class="en-l">Enhances</div><p><b>SolutionVue QSAs</b></p><p><b>CableFinder / GeoQuote</b></p><p>Autonomous quote-to-proposal pipeline orchestration</p></div>
-    <div class="cx"><div class="am">$1,050,000</div><div class="pc">28%</div></div>
-  </div>
-  <div class="cd">
-    <div class="ico">&#127919;</div><h3>Atom IntentIQ</h3>
-    <div class="tg">Buyer Intent Scoring<br>GPT-4o Pipeline Intel</div>
-    <div class="en"><div class="en-l">Enhances</div><p><b>SolutionVue QSAs</b></p><p><b>Lead Qualification</b></p><p>Instant deal scoring, auto follow-ups, proposal language gen</p></div>
-    <div class="cx"><div class="am">$675,000</div><div class="pc">18%</div></div>
-  </div>
-  <div class="cd">
-    <div class="ico">&#127760;</div><h3>Atom GIS</h3>
-    <div class="tg">Infrastructure Atlas<br>DC + Fiber Intelligence</div>
-    <div class="en"><div class="en-l">Enhances</div><p><b>Service Map</b></p><p><b>CableFinder</b></p><p>GPU/SOC2/Sovereign filters, power feasibility, NL search</p></div>
-    <div class="cx"><div class="am">$450,000</div><div class="pc">12%</div></div>
-  </div>
-  <div class="cd">
-    <div class="ico">&#9876;&#65039;</div><h3>Compare Atom</h3>
-    <div class="tg">Dynamic Vendor Matrix<br>25 Dims &times; 12 Vendors</div>
-    <div class="en"><div class="en-l">Enhances</div><p><b>Supplier Matrix Pro</b></p><p><b>Pitch Collateral</b></p><p>Auto battlecards vs Kore, Zendesk, MSFT, Google, AWS, IBM</p></div>
-    <div class="cx"><div class="am">$262,500</div><div class="pc">7%</div></div>
-  </div>
-</div>
-<div class="cxs">
-  <div class="big">$3,750,000</div>
-  <div class="det"><strong>Total CapEx &mdash; One-Time Custom Build</strong><br>Full 5-module integration into Telarus Hub &bull; Telarus owns integration IP &bull; 3&ndash;6 mo build &bull; 90
-
+.ft{text-align:center;font-size:
