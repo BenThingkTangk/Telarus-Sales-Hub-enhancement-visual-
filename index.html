@@ -1,214 +1,1532 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atom AI × Telarus — Pitch Visual</title>
+<title>ATOM AI × Telarus — Pricing & Pitch Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Sora:wght@300..800&display=swap" rel="stylesheet">
 <style>
-:root{--purple:#7c6cff;--green:#00d4aa;--orange:#ff8c42;--blue:#00b4d8;--pink:#ff6b9d;--bg:#0a0a14;--card:#0e0e1c;--border:#2a2a50;--muted:#666;--text:#ccc}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:24px 18px;line-height:1.4}
-.page{max-width:1160px;margin:0 auto}
+/* =============================================
+   DESIGN TOKENS — ATOM AI Dark Palette
+   ============================================= */
+:root {
+  --font-display: 'Sora', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 
-/* HEADER */
-.header{text-align:center;margin-bottom:18px}
-.header .sub{color:#9a8fff;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin-bottom:4px}
-.header h1{font-size:28px;font-weight:800;letter-spacing:.5px}
-.header h1 span{color:var(--purple)}
-.header p{color:var(--muted);font-size:12px;margin-top:3px}
+  /* Core palette */
+  --purple:    #7c6cff;
+  --purple-d:  #5a4de0;
+  --purple-g:  rgba(124,108,255,0.12);
+  --green:     #00d4aa;
+  --green-d:   #00a882;
+  --green-g:   rgba(0,212,170,0.12);
+  --orange:    #ff8c42;
+  --orange-g:  rgba(255,140,66,0.12);
+  --blue:      #00b4d8;
+  --blue-g:    rgba(0,180,216,0.12);
+  --pink:      #ff6b9d;
+  --pink-g:    rgba(255,107,157,0.12);
+  --gold:      #ffd166;
 
-/* SECTION LABELS */
-.slabel{color:var(--purple);font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin:22px 0 10px;padding-bottom:5px;border-bottom:1px solid #1e1e38;display:flex;align-items:center;gap:8px}
-.slabel.green{color:var(--green);border-color:#0d3a2a}
-.slabel .badge{background:var(--purple);color:#fff;font-size:8px;padding:2px 8px;border-radius:10px;letter-spacing:1px}
-.slabel.green .badge{background:var(--green);color:#000}
+  /* Surfaces */
+  --bg:        #080811;
+  --surface:   #0d0d1a;
+  --surface-2: #111122;
+  --surface-3: #16162a;
+  --border:    rgba(255,255,255,0.07);
+  --border-md: rgba(255,255,255,0.12);
 
-/* FLOW BAR */
-.flow{display:flex;justify-content:center;gap:5px;margin-bottom:18px;flex-wrap:wrap;align-items:center}
-.fs{background:#161628;border:1px solid #2a2a45;border-radius:7px;padding:8px 14px;font-size:10px;color:#aaa;text-align:center;min-width:110px}
-.fs strong{color:var(--purple);display:block;font-size:9px;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
-.arr{color:#444;font-size:18px}
+  /* Text */
+  --text:      #f0efff;
+  --muted:     #8888aa;
+  --faint:     #44445a;
 
-/* 5-CARD MODULE GRID */
-.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:6px}
-.card{background:linear-gradient(150deg,#131228,var(--card));border:1px solid var(--border);border-radius:12px;padding:14px 10px 10px;text-align:center;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:40px;height:3px;border-radius:0 0 4px 4px}
-.card:nth-child(1)::before{background:var(--purple)}
-.card:nth-child(2)::before{background:var(--green)}
-.card:nth-child(3)::before{background:var(--orange)}
-.card:nth-child(4)::before{background:var(--blue)}
-.card:nth-child(5)::before{background:var(--pink)}
-.ico{font-size:22px;margin-bottom:5px}
-.card h3{font-size:12px;font-weight:700;margin-bottom:2px}
-.tag{font-size:9px;color:var(--muted);line-height:1.3;margin-bottom:8px}
-.enh{background:#0b0b18;border:1px solid #22224a;border-radius:7px;padding:7px}
-.enh-label{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
-.enh p{font-size:9px;color:#aaa;line-height:1.4;margin:1px 0}
-.enh b{color:var(--purple);font-weight:600}
-.capex-bar{display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:1px dashed #2a2a50}
-.capex-bar .amt{color:var(--green);font-weight:800;font-size:12px}
-.capex-bar .pct{color:#555;font-size:9px}
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
 
-/* SUBSCRIPTION TIERS */
-.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:6px}
-.tier{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 10px;text-align:center}
-.tier.rec{border-color:var(--purple);box-shadow:0 0 16px rgba(124,108,255,.12)}
-.tier h4{font-size:12px;font-weight:700;margin-bottom:1px}
-.tier .price{color:var(--purple);font-size:18px;font-weight:800;margin:4px 0 2px}
-.tier .price small{font-size:9px;color:#888;font-weight:400}
-.tier .ann{font-size:9px;color:#555;margin-bottom:6px}
-.tier .desc{font-size:9px;color:#888;line-height:1.35;margin-bottom:6px}
-.tier .mods{font-size:8px;color:#555;line-height:1.4}
-.tier .mods span{color:var(--green)}
-.rec-badge{background:var(--purple);color:#fff;font-size:7px;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:1px;display:inline-block;margin-bottom:4px}
+  /* Text scale */
+  --text-xs:   clamp(0.7rem,  0.65rem + 0.25vw, 0.8rem);
+  --text-sm:   clamp(0.8rem,  0.75rem + 0.25vw, 0.875rem);
+  --text-base: clamp(0.9rem,  0.85rem + 0.25vw, 1rem);
+  --text-lg:   clamp(1rem,    0.9rem  + 0.5vw,  1.25rem);
+  --text-xl:   clamp(1.25rem, 1rem    + 1vw,    1.75rem);
+  --text-2xl:  clamp(1.75rem, 1.2rem  + 2vw,    2.5rem);
+  --text-3xl:  clamp(2rem,    1rem    + 3vw,    3.25rem);
 
-/* CAPEX TOTAL */
-.capex-summary{display:flex;justify-content:center;gap:20px;align-items:center;padding:14px;border:1px solid rgba(0,212,170,.2);border-radius:12px;background:linear-gradient(135deg,#0a1a14,#0a0a14);margin-bottom:6px}
-.capex-summary .big{font-size:28px;font-weight:800;color:var(--green)}
-.capex-summary .detail{font-size:10px;color:#888;line-height:1.5}
-.capex-summary .detail strong{color:#fff}
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
 
-/* SIDE BY SIDE */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-.duo-box{border:1px solid var(--border);border-radius:12px;padding:14px;background:var(--card)}
-.duo-box h3{font-size:13px;margin-bottom:8px}
-.duo-box.opex h3{color:var(--purple)}
-.duo-box.capex h3{color:var(--green)}
-.duo-box table{width:100%;border-collapse:collapse}
-.duo-box td{font-size:9px;padding:4px 0;color:#aaa;border-bottom:1px solid #1a1a30}
-.duo-box td:first-child{color:#888;width:40%}
-.duo-box td strong{color:#fff}
+  --shadow-glow-purple: 0 0 32px rgba(124,108,255,0.18), 0 0 80px rgba(124,108,255,0.06);
+  --shadow-glow-green:  0 0 32px rgba(0,212,170,0.18),  0 0 80px rgba(0,212,170,0.06);
+  --shadow-card:        0 4px 24px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.6);
+  --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-/* BOTTOM */
-.bot{text-align:center;padding:14px 20px;border:1px solid #1e1e38;border-radius:12px;background:var(--card);margin-bottom:10px}
-.bot p{font-size:11px;color:#999;line-height:1.7}
-.bot strong{color:#fff}
-.foot{text-align:center;font-size:9px;color:#444;letter-spacing:1px}
+/* =============================================
+   BASE
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* =============================================
+   BACKGROUND ATMOSPHERE
+   ============================================= */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80vw 60vh at 50% -10%, rgba(124,108,255,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50vw 40vh at 90% 80%, rgba(0,212,170,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40vw 30vh at 10% 60%, rgba(0,180,216,0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page { max-width: 1280px; margin: 0 auto; padding: var(--space-6) var(--space-5); position: relative; z-index: 1; }
+
+/* =============================================
+   HEADER
+   ============================================= */
+.header {
+  text-align: center;
+  padding: var(--space-10) var(--space-4) var(--space-8);
+  position: relative;
+}
+.header-eyebrow {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  background: var(--surface-2);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--text-xs);
+  font-family: var(--font-display);
+  color: var(--purple);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+.header-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
+
+.header h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: var(--space-3);
+}
+.header h1 .atom { color: var(--purple); }
+.header h1 .x { color: var(--faint); margin: 0 var(--space-2); }
+.header h1 .telarus { color: var(--green); }
+.header-sub {
+  color: var(--muted);
+  font-size: var(--text-base);
+  max-width: 620px;
+  margin: 0 auto var(--space-6);
+}
+
+/* =============================================
+   TAB NAVIGATION
+   ============================================= */
+.tab-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-md);
+  background: var(--surface-2);
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.01em;
+}
+.tab-btn .badge-letter {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  background: var(--faint);
+  color: var(--bg);
+  transition: all var(--transition);
+}
+.tab-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+.tab-btn.active-opex { background: linear-gradient(135deg, rgba(124,108,255,0.2), rgba(124,108,255,0.08)); border-color: rgba(124,108,255,0.4); color: var(--purple); box-shadow: 0 0 20px rgba(124,108,255,0.12); }
+.tab-btn.active-opex .badge-letter { background: var(--purple); color: #fff; }
+.tab-btn.active-capex { background: linear-gradient(135deg, rgba(0,212,170,0.2), rgba(0,212,170,0.08)); border-color: rgba(0,212,170,0.4); color: var(--green); box-shadow: 0 0 20px rgba(0,212,170,0.12); }
+.tab-btn.active-capex .badge-letter { background: var(--green); color: #000; }
+.tab-btn.active-hybrid { background: linear-gradient(135deg, rgba(255,209,102,0.2), rgba(255,140,66,0.08)); border-color: rgba(255,209,102,0.4); color: var(--gold); box-shadow: 0 0 20px rgba(255,209,102,0.12); }
+.tab-btn.active-hybrid .badge-letter { background: var(--gold); color: #000; }
+
+/* =============================================
+   PANELS
+   ============================================= */
+.panel { display: none; animation: fadePanel 0.35s ease; }
+.panel.active { display: block; }
+@keyframes fadePanel { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+/* =============================================
+   SECTION LABELS
+   ============================================= */
+.slabel {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin: var(--space-8) 0 var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+.slabel .pill {
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.pill-purple { background: rgba(124,108,255,0.15); color: var(--purple); border: 1px solid rgba(124,108,255,0.3); }
+.pill-green  { background: rgba(0,212,170,0.15);  color: var(--green);  border: 1px solid rgba(0,212,170,0.3); }
+.pill-gold   { background: rgba(255,209,102,0.15);color: var(--gold);   border: 1px solid rgba(255,209,102,0.3); }
+.pill-orange { background: rgba(255,140,66,0.15); color: var(--orange); border: 1px solid rgba(255,140,66,0.3); }
+
+/* =============================================
+   SALES FLOW BAR
+   ============================================= */
+.flow-bar {
+  display: flex; align-items: center; justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.flow-step {
+  background: var(--surface-3);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+  min-width: 120px;
+}
+.flow-step strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 2px;
+}
+.flow-step span { font-size: var(--text-xs); color: var(--muted); }
+.flow-arrow { color: var(--faint); font-size: 1.2rem; }
+
+/* =============================================
+   PANEL A — OPEX / SUBSCRIPTION
+   ============================================= */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+@media (max-width: 900px) { .tier-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .tier-grid { grid-template-columns: 1fr; } }
+
+.tier-card {
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-5);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.tier-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.tier-card .top-bar {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.tier-card .rec-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--purple), #a090ff);
+  color: #fff;
+  font-size: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+}
+.tier-card.featured {
+  border-color: rgba(124,108,255,0.4);
+  box-shadow: var(--shadow-glow-purple);
+  background: linear-gradient(160deg, rgba(124,108,255,0.08), var(--surface));
+}
+.tier-card h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+.tier-price {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--purple);
+  margin: var(--space-2) 0 var(--space-1);
+  line-height: 1.1;
+}
+.tier-price small {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  font-weight: 400;
+}
+.tier-annual {
+  font-size: var(--text-xs);
+  color: var(--faint);
+  margin-bottom: var(--space-4);
+}
+.tier-desc {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+.tier-features { list-style: none; }
+.tier-features li {
+  display: flex; align-items: flex-start; gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  padding: var(--space-1) 0;
+}
+.tier-features li .check { color: var(--green); flex-shrink: 0; margin-top: 1px; }
+.tier-features li .x-mark { color: var(--faint); flex-shrink: 0; margin-top: 1px; }
+
+.tier-modules {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+.tier-modules-label {
+  font-size: var(--text-xs);
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: var(--space-2);
+}
+.module-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.module-tag {
+  font-size: 0.62rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.module-tag.active-tag { background: rgba(0,212,170,0.1); border-color: rgba(0,212,170,0.25); color: var(--green); }
+
+/* Comparison table */
+.compare-table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+.compare-table { width: 100%; border-collapse: collapse; }
+.compare-table th {
+  background: var(--surface-3);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--muted);
+  text-align: left;
+  border-bottom: 1px solid var(--border-md);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.compare-table th.featured-col { color: var(--purple); }
+.compare-table td {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.compare-table td:first-child { color: var(--text); }
+.compare-table td.featured-col { background: rgba(124,108,255,0.04); }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table .yes { color: var(--green); font-weight: 600; }
+.compare-table .no  { color: var(--faint); }
+.compare-table .limited { color: var(--orange); }
+
+/* =============================================
+   PANEL B — CAPEX
+   ============================================= */
+.capex-hero {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: var(--space-6);
+  padding: var(--space-8) var(--space-8);
+  background: linear-gradient(135deg, rgba(0,212,170,0.1), rgba(0,212,170,0.04));
+  border: 1px solid rgba(0,212,170,0.25);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-glow-green);
+}
+.capex-hero-left { flex: 1; min-width: 260px; }
+.capex-hero-left .eyebrow {
+  font-size: var(--text-xs);
+  font-family: var(--font-display);
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-2);
+}
+.capex-hero-left h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+}
+.capex-hero-left p { font-size: var(--text-sm); color: var(--muted); max-width: 480px; }
+.capex-big {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--green);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.capex-big-sub { font-size: var(--text-xs); color: var(--muted); margin-top: var(--space-1); text-align: right; }
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+@media (max-width: 1000px) { .modules-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .modules-grid { grid-template-columns: 1fr 1fr; } }
+
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-4);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-align: center;
+}
+.module-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+.module-card .top-stripe {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.module-card .icon { font-size: 1.8rem; margin-bottom: var(--space-3); }
+.module-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+.module-card .tag {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  line-height: 1.4;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px dashed var(--border);
+}
+.module-card .enhances-label {
+  font-size: 0.6rem;
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-2);
+}
+.module-card .enhances-items { margin-bottom: var(--space-4); }
+.module-card .enhances-items span {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--text);
+  font-weight: 600;
+  padding: 2px 0;
+}
+.module-card .cap-note {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  line-height: 1.4;
+  margin-bottom: var(--space-4);
+}
+.module-card .capex-allocation {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--border);
+}
+.module-card .alloc-amt {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 800;
+  color: var(--green);
+}
+.module-card .alloc-pct {
+  font-size: var(--text-xs);
+  color: var(--faint);
+}
+
+/* Allocation bar */
+.alloc-bar-section {
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.alloc-bar-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+}
+.alloc-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 80px;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+.alloc-label {
+  font-size: var(--text-xs);
+  color: var(--text);
+  font-weight: 600;
+}
+.alloc-track {
+  height: 8px;
+  background: var(--surface-3);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.alloc-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.alloc-val {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Capex Terms */
+.capex-terms {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+@media (max-width: 700px) { .capex-terms { grid-template-columns: 1fr; } }
+
+.term-card {
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  text-align: center;
+}
+.term-card .term-ico { font-size: 1.5rem; margin-bottom: var(--space-2); }
+.term-card .term-val {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  margin-bottom: var(--space-1);
+}
+.term-card .term-label { font-size: var(--text-xs); color: var(--muted); }
+
+/* =============================================
+   PANEL C — HYBRID
+   ============================================= */
+.hybrid-hero {
+  position: relative;
+  padding: var(--space-8) var(--space-8);
+  background: linear-gradient(135deg, rgba(255,209,102,0.08), rgba(255,140,66,0.05));
+  border: 1px solid rgba(255,209,102,0.25);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-8);
+  overflow: hidden;
+}
+.hybrid-hero::before {
+  content: '★ RECOMMENDED PITCH';
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #000;
+  background: var(--gold);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+.hybrid-hero h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+  color: var(--gold);
+}
+.hybrid-hero p { font-size: var(--text-sm); color: var(--muted); max-width: 700px; line-height: 1.7; }
+
+/* Hybrid journey */
+.hybrid-journey {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+@media (max-width: 800px) {
+  .hybrid-journey {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .journey-arrow { display: none; }
+}
+
+.journey-step {
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  position: relative;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.journey-step:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.journey-step.phase-1 { border-color: rgba(124,108,255,0.35); background: linear-gradient(160deg, rgba(124,108,255,0.08), var(--surface)); }
+.journey-step.phase-2 { border-color: rgba(0,212,170,0.35); background: linear-gradient(160deg, rgba(0,212,170,0.08), var(--surface)); }
+.journey-step.phase-3 { border-color: rgba(255,209,102,0.35); background: linear-gradient(160deg, rgba(255,209,102,0.08), var(--surface)); }
+.journey-step .phase-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+}
+.phase-1 .phase-badge { background: rgba(124,108,255,0.15); color: var(--purple); border: 1px solid rgba(124,108,255,0.3); }
+.phase-2 .phase-badge { background: rgba(0,212,170,0.15);  color: var(--green); border: 1px solid rgba(0,212,170,0.3); }
+.phase-3 .phase-badge { background: rgba(255,209,102,0.15);color: var(--gold); border: 1px solid rgba(255,209,102,0.3); }
+.journey-step h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+.journey-step .j-price {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  margin-bottom: var(--space-3);
+}
+.phase-1 .j-price { color: var(--purple); }
+.phase-2 .j-price { color: var(--green); }
+.phase-3 .j-price { color: var(--gold); }
+.journey-step .j-duration {
+  display: inline-block;
+  font-size: var(--text-xs);
+  color: var(--muted);
+  padding: 2px 8px;
+  background: var(--surface-3);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+}
+.journey-step ul { list-style: none; }
+.journey-step ul li {
+  display: flex; align-items: flex-start; gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  padding: 3px 0;
+}
+.journey-step ul li::before { content: '→'; color: var(--purple); flex-shrink: 0; }
+.phase-2 ul li::before { color: var(--green); }
+.phase-3 ul li::before { color: var(--gold); }
+
+.journey-arrow {
+  font-size: 1.5rem;
+  color: var(--faint);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Hybrid math */
+.hybrid-math {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+@media (max-width: 700px) { .hybrid-math { grid-template-columns: 1fr; } }
+
+.math-card {
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+}
+.math-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
+}
+.math-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border);
+}
+.math-row:last-child { border-bottom: none; }
+.math-row .label { font-size: var(--text-xs); color: var(--muted); }
+.math-row .val { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; }
+.math-row.total-row { margin-top: var(--space-2); padding-top: var(--space-3); border-top: 1px solid var(--border-md); }
+.math-row.total-row .label { color: var(--text); font-weight: 600; font-size: var(--text-sm); }
+.math-row.total-row .val { font-size: var(--text-lg); }
+.math-row.savings-row .label { color: var(--green); font-weight: 600; }
+.math-row.savings-row .val  { color: var(--green); }
+
+/* Pitch Talking Points */
+.pitch-points {
+  background: var(--surface);
+  border: 1px solid rgba(255,209,102,0.2);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.pitch-points h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+  color: var(--gold);
+}
+.pitch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+@media (max-width: 600px) { .pitch-grid { grid-template-columns: 1fr; } }
+
+.pitch-item {
+  display: flex; gap: var(--space-3);
+}
+.pitch-item .pitch-num {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(255,209,102,0.12);
+  border: 1px solid rgba(255,209,102,0.3);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.pitch-item .pitch-text {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  line-height: 1.6;
+}
+.pitch-item .pitch-text strong { color: var(--text); font-weight: 600; }
+
+/* =============================================
+   BOTTOM CTA / FOOTER
+   ============================================= */
+.bottom-cta {
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  margin-top: var(--space-8);
+}
+.bottom-cta h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+}
+.bottom-cta p { font-size: var(--text-sm); color: var(--muted); margin-bottom: var(--space-6); }
+.cta-btns { display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap; }
+.btn {
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-purple { background: var(--purple); color: #fff; }
+.btn-purple:hover { background: var(--purple-d); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,108,255,0.4); }
+.btn-green { background: var(--green); color: #000; }
+.btn-green:hover { background: var(--green-d); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,212,170,0.4); }
+.btn-ghost { background: transparent; border: 1px solid var(--border-md); color: var(--muted); }
+.btn-ghost:hover { border-color: rgba(255,255,255,0.25); color: var(--text); }
+
+.foot { text-align: center; padding: var(--space-6) 0; font-size: var(--text-xs); color: var(--faint); letter-spacing: 0.1em; }
+
+/* =============================================
+   UTILS
+   ============================================= */
+.text-purple { color: var(--purple); }
+.text-green  { color: var(--green); }
+.text-orange { color: var(--orange); }
+.text-blue   { color: var(--blue); }
+.text-pink   { color: var(--pink); }
+.text-gold   { color: var(--gold); }
+.text-muted  { color: var(--muted); }
+
+/* ROI Callout */
+.roi-strip {
+  display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--space-5) var(--space-6);
+  background: linear-gradient(135deg, rgba(124,108,255,0.08), rgba(0,212,170,0.05));
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  margin: var(--space-6) 0;
+}
+.roi-item { text-align: center; }
+.roi-item .roi-val {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+.roi-item .roi-label { font-size: var(--text-xs); color: var(--muted); }
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .page { padding: var(--space-4) var(--space-4); }
+  .header h1 { font-size: var(--text-2xl); }
+  .capex-hero { padding: var(--space-5); }
+  .hybrid-hero { padding: var(--space-5); }
+  .modules-grid { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="sub">Telarus Sales Hub Enhancement</div>
-    <h1>ATOM AI <span>&times;</span> TELARUS</h1>
-    <p>The AI Nervous System Around Telarus Hub Tools &mdash; OpEx &amp; CapEx Options</p>
+  <!-- ==================== HEADER ==================== -->
+  <header class="header">
+    <div class="header-eyebrow">
+      <span class="dot"></span>
+      Telarus Sales Hub Enhancement &mdash; 2025 Partnership Deck
+    </div>
+    <h1>
+      <span class="atom">ATOM AI</span>
+      <span class="x">×</span>
+      <span class="telarus">TELARUS</span>
+    </h1>
+    <p class="header-sub">The AI Nervous System Around Telarus Hub Tools — Three Commercial Pathways to Enterprise Adoption</p>
+  </header>
+
+  <!-- ==================== SALES LIFECYCLE FLOW ==================== -->
+  <div class="flow-bar">
+    <div class="flow-step"><strong>Discovery</strong><span>SolutionVue + IntentIQ</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><strong>Design</strong><span>Service Map + Atom GIS</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><strong>Quote</strong><span>GeoQuote + Agentic</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><strong>Propose</strong><span>Supplier Matrix + Compare</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><strong>Execute</strong><span>Enterprise Governance</span></div>
   </div>
 
-  <!-- SALES LIFECYCLE FLOW -->
-  <div class="flow">
-    <div class="fs"><strong>Discovery</strong>SolutionVue + IntentIQ</div>
-    <div class="arr">&rarr;</div>
-    <div class="fs"><strong>Design</strong>Service Map + Atom GIS</div>
-    <div class="arr">&rarr;</div>
-    <div class="fs"><strong>Quote</strong>GeoQuote + Agentic</div>
-    <div class="arr">&rarr;</div>
-    <div class="fs"><strong>Propose</strong>Supplier Matrix + Compare</div>
-    <div class="arr">&rarr;</div>
-    <div class="fs"><strong>Execute</strong>Enterprise Governance</div>
+  <!-- ==================== TAB NAV ==================== -->
+  <nav class="tab-nav" role="tablist">
+    <button class="tab-btn active-opex" role="tab" aria-selected="true"  onclick="switchTab('opex',  this)" aria-controls="panel-opex">
+      <span class="badge-letter">A</span>
+      Monthly Subscription (OpEx)
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab('capex', this)" aria-controls="panel-capex">
+      <span class="badge-letter">B</span>
+      $3.75M Custom Build (CapEx)
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab('hybrid',this)" aria-controls="panel-hybrid">
+      <span class="badge-letter">C</span>
+      ★ Hybrid Play (Recommended)
+    </button>
+  </nav>
+
+  <!-- ==================================================
+       PANEL A — OPEX / SUBSCRIPTION
+       ================================================== -->
+  <section id="panel-opex" class="panel active" role="tabpanel">
+
+    <div class="slabel">
+      <span class="pill pill-purple">OPTION A</span>
+      ATOM Monthly Subscription Tiers — OpEx Model
+    </div>
+
+    <!-- Tier Cards -->
+    <div class="tier-grid">
+
+      <!-- STARTER -->
+      <div class="tier-card">
+        <div class="top-bar" style="background: linear-gradient(90deg,var(--blue),#0090b8);"></div>
+        <h4>Atom Starter</h4>
+        <div class="tier-price">$5K–$10K<small>/mo</small></div>
+        <div class="tier-annual">$60K–$120K / year</div>
+        <div class="tier-desc">Mid-market entry · Up to 3 agents · Cloud deploy · 100K interactions/mo</div>
+        <ul class="tier-features">
+          <li><span class="check">✓</span> Atom IntentIQ (lead scoring)</li>
+          <li><span class="check">✓</span> Compare Atom (5 vendors)</li>
+          <li><span class="check">✓</span> Basic SolutionVue integration</li>
+          <li><span class="check">✓</span> Standard SLA · 48h support</li>
+          <li><span class="x-mark">✗</span> No GIS · No Agentic voice</li>
+          <li><span class="x-mark">✗</span> No enterprise governance</li>
+        </ul>
+        <div class="tier-modules">
+          <div class="tier-modules-label">Modules Included</div>
+          <div class="module-tags">
+            <span class="module-tag active-tag">IntentIQ</span>
+            <span class="module-tag active-tag">Compare</span>
+            <span class="module-tag">Agentic</span>
+            <span class="module-tag">GIS</span>
+            <span class="module-tag">Enterprise</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFESSIONAL — FEATURED -->
+      <div class="tier-card featured">
+        <div class="top-bar" style="background: linear-gradient(90deg,var(--purple),#a090ff);"></div>
+        <div class="rec-badge">⭐ POV Entry Point</div>
+        <h4>Atom Professional</h4>
+        <div class="tier-price">$25K<small>/mo</small></div>
+        <div class="tier-annual">$300K / year</div>
+        <div class="tier-desc">Full-stack mid-enterprise · 10 agents · VPC ready · 500K interactions/mo · Preferred 90-Day POV Start</div>
+        <ul class="tier-features">
+          <li><span class="check">✓</span> Atom IntentIQ (real-time scoring)</li>
+          <li><span class="check">✓</span> Atom Agentic (voice + workflow)</li>
+          <li><span class="check">✓</span> Atom GIS (infrastructure atlas)</li>
+          <li><span class="check">✓</span> Compare Atom (25 dimensions)</li>
+          <li><span class="check">✓</span> GeoQuote + CableFinder AI</li>
+          <li><span class="check">✓</span> 99.9% SLA · 24/7 support</li>
+          <li><span class="check">✓</span> Custom Telarus Hub integration</li>
+          <li><span class="x-mark">✗</span> Limited on-prem/edge nodes</li>
+        </ul>
+        <div class="tier-modules">
+          <div class="tier-modules-label">Modules Included</div>
+          <div class="module-tags">
+            <span class="module-tag active-tag">IntentIQ</span>
+            <span class="module-tag active-tag">Agentic</span>
+            <span class="module-tag active-tag">GIS</span>
+            <span class="module-tag active-tag">Compare</span>
+            <span class="module-tag">Enterprise</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="tier-card">
+        <div class="top-bar" style="background: linear-gradient(90deg,var(--green),var(--blue));"></div>
+        <h4>Atom Enterprise</h4>
+        <div class="tier-price" style="color:var(--green);">$65K<small>/mo</small></div>
+        <div class="tier-annual">$780K / year</div>
+        <div class="tier-desc">Full platform · Unlimited agents · VPC + on-prem · Zero upfront capital · Full Telarus AI stack</div>
+        <ul class="tier-features">
+          <li><span class="check">✓</span> All 5 ATOM modules fully live</li>
+          <li><span class="check">✓</span> Akamai edge + on-prem nodes</li>
+          <li><span class="check">✓</span> 5-layer governance framework</li>
+          <li><span class="check">✓</span> RBAC + audit trails + SSO</li>
+          <li><span class="check">✓</span> Model-agnostic runtime</li>
+          <li><span class="check">✓</span> Zero-training guarantee</li>
+          <li><span class="check">✓</span> Dedicated CSM + SLA 99.99%</li>
+          <li><span class="check">✓</span> Supplier matrix battlecards</li>
+        </ul>
+        <div class="tier-modules">
+          <div class="tier-modules-label">Modules Included</div>
+          <div class="module-tags">
+            <span class="module-tag active-tag">IntentIQ</span>
+            <span class="module-tag active-tag">Agentic</span>
+            <span class="module-tag active-tag">GIS</span>
+            <span class="module-tag active-tag">Compare</span>
+            <span class="module-tag active-tag">Enterprise</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOM -->
+      <div class="tier-card">
+        <div class="top-bar" style="background: linear-gradient(90deg,var(--orange),var(--pink));"></div>
+        <h4>Atom Custom</h4>
+        <div class="tier-price" style="color:var(--orange);">Custom<small>/mo</small></div>
+        <div class="tier-annual">Negotiated Annually</div>
+        <div class="tier-desc">Multi-tenant reseller · White-label · Revenue share model · For Telarus partner ecosystem expansion</div>
+        <ul class="tier-features">
+          <li><span class="check">✓</span> White-label ATOM platform</li>
+          <li><span class="check">✓</span> Multi-tenant architecture</li>
+          <li><span class="check">✓</span> Revenue share / reseller margin</li>
+          <li><span class="check">✓</span> Custom branding + integrations</li>
+          <li><span class="check">✓</span> Partner portal + analytics</li>
+          <li><span class="check">✓</span> SLA negotiable · Dedicated team</li>
+          <li><span class="check">✓</span> Strategic advisory included</li>
+          <li><span class="check">✓</span> All modules + roadmap access</li>
+        </ul>
+        <div class="tier-modules">
+          <div class="tier-modules-label">Modules Included</div>
+          <div class="module-tags">
+            <span class="module-tag active-tag">IntentIQ</span>
+            <span class="module-tag active-tag">Agentic</span>
+            <span class="module-tag active-tag">GIS</span>
+            <span class="module-tag active-tag">Compare</span>
+            <span class="module-tag active-tag">Enterprise</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="slabel">
+      <span class="pill pill-purple">COMPARE</span>
+      Tier-by-Tier Feature Matrix
+    </div>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th class="featured-col">Professional ⭐</th>
+            <th>Enterprise</th>
+            <th>Custom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monthly Price</td><td>$5K–$10K</td><td class="featured-col text-purple">$25K</td><td class="text-green">$65K</td><td class="text-orange">Negotiated</td></tr>
+          <tr><td>AI Agents</td><td>Up to 3</td><td class="featured-col">Up to 10</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Interactions/mo</td><td>100K</td><td class="featured-col">500K</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>IntentIQ</td><td class="yes">✓</td><td class="featured-col yes">✓ Real-time</td><td class="yes">✓ Real-time</td><td class="yes">✓ Custom</td></tr>
+          <tr><td>Atom Agentic</td><td class="no">✗</td><td class="featured-col yes">✓ Voice + Flow</td><td class="yes">✓ Full Stack</td><td class="yes">✓ Full Stack</td></tr>
+          <tr><td>Atom GIS</td><td class="no">✗</td><td class="featured-col yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Compare Atom</td><td class="limited">5 vendors</td><td class="featured-col yes">25 dimensions</td><td class="yes">Full + battlecards</td><td class="yes">Custom</td></tr>
+          <tr><td>Enterprise Governance</td><td class="no">✗</td><td class="featured-col limited">Limited</td><td class="yes">✓ 5-Layer</td><td class="yes">✓ Custom</td></tr>
+          <tr><td>VPC / On-Prem</td><td class="no">✗</td><td class="featured-col limited">VPC only</td><td class="yes">VPC + On-Prem + Edge</td><td class="yes">✓ Full</td></tr>
+          <tr><td>SLA</td><td>Standard</td><td class="featured-col">99.9%</td><td class="yes">99.99%</td><td class="yes">Negotiated</td></tr>
+          <tr><td>Support</td><td>48h response</td><td class="featured-col">24/7 + CSM</td><td class="yes">Dedicated CSM</td><td class="yes">Dedicated Team</td></tr>
+          <tr><td>White-label</td><td class="no">✗</td><td class="featured-col no">✗</td><td class="no">✗</td><td class="yes">✓ Full</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ROI Strip -->
+    <div class="roi-strip">
+      <div class="roi-item"><div class="roi-val text-purple">3×</div><div class="roi-label">Quote speed vs manual process</div></div>
+      <div class="roi-item"><div class="roi-val text-green">40%</div><div class="roi-label">Reduction in pre-sales labor</div></div>
+      <div class="roi-item"><div class="roi-val text-orange">95%</div><div class="roi-label">Proposal accuracy rate</div></div>
+      <div class="roi-item"><div class="roi-val text-blue">24/7</div><div class="roi-label">AI-powered sales coverage</div></div>
+      <div class="roi-item"><div class="roi-val text-pink">$0</div><div class="roi-label">Upfront capital required</div></div>
+    </div>
+
+  </section>
+
+  <!-- ==================================================
+       PANEL B — CAPEX
+       ================================================== -->
+  <section id="panel-capex" class="panel" role="tabpanel">
+
+    <!-- Hero Banner -->
+    <div class="capex-hero">
+      <div class="capex-hero-left">
+        <div class="eyebrow">⬡ Option B — One-Time Custom Build</div>
+        <h2>Own the Entire ATOM Stack</h2>
+        <p>Telarus takes full ownership of the custom-integrated ATOM AI platform. All 5 modules built natively into the Telarus Sales Hub. Telarus retains IP rights on the custom integration layer. Built in 3–6 months with a 90-day post-launch warranty.</p>
+      </div>
+      <div>
+        <div class="capex-big">$3,750,000</div>
+        <div class="capex-big-sub">One-time investment · No recurring license<br>Telarus owns integration IP forever</div>
+      </div>
+    </div>
+
+    <!-- 5 Modules -->
+    <div class="slabel">
+      <span class="pill pill-green">MODULES</span>
+      Budget Allocation Across 5 ATOM Modules
+    </div>
+    <div class="modules-grid">
+
+      <!-- Enterprise -->
+      <div class="module-card">
+        <div class="top-stripe" style="background:linear-gradient(90deg,var(--purple),#a090ff);"></div>
+        <div class="icon">🧠</div>
+        <h3>Atom Enterprise</h3>
+        <div class="tag">VPC · On-Prem · Akamai Edge<br>5-Layer Governance Framework</div>
+        <div class="enhances-label">Enhances Telarus Tools</div>
+        <div class="enhances-items">
+          <span>▸ Supplier Matrix Pro</span>
+          <span>▸ Service Map</span>
+        </div>
+        <div class="cap-note">RBAC, audit trails, model-agnostic runtime, zero-training guarantee, sovereign compliance</div>
+        <div class="capex-allocation">
+          <span class="alloc-amt">$1,312,500</span>
+          <span class="alloc-pct">35%</span>
+        </div>
+      </div>
+
+      <!-- Agentic -->
+      <div class="module-card">
+        <div class="top-stripe" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+        <div class="icon">⚡</div>
+        <h3>Atom Agentic</h3>
+        <div class="tag">Autonomous Agents<br>Brain → Spine → Worker Layers</div>
+        <div class="enhances-label">Enhances Telarus Tools</div>
+        <div class="enhances-items">
+          <span>▸ SolutionVue QSAs</span>
+          <span>▸ CableFinder / GeoQuote</span>
+        </div>
+        <div class="cap-note">Voice + workflow agents orchestrate the full quote-to-proposal pipeline end-to-end</div>
+        <div class="capex-allocation">
+          <span class="alloc-amt">$1,050,000</span>
+          <span class="alloc-pct">28%</span>
+        </div>
+      </div>
+
+      <!-- IntentIQ -->
+      <div class="module-card">
+        <div class="top-stripe" style="background:linear-gradient(90deg,var(--orange),var(--pink));"></div>
+        <div class="icon">🎯</div>
+        <h3>Atom IntentIQ</h3>
+        <div class="tag">Real-Time Buyer Intent<br>GPT-4o Pipeline Intelligence</div>
+        <div class="enhances-label">Enhances Telarus Tools</div>
+        <div class="enhances-items">
+          <span>▸ SolutionVue QSAs</span>
+          <span>▸ Lead Qualification</span>
+        </div>
+        <div class="cap-note">Scores deals instantly. Auto-generates personalized follow-ups and proposal language</div>
+        <div class="capex-allocation">
+          <span class="alloc-amt">$675,000</span>
+          <span class="alloc-pct">18%</span>
+        </div>
+      </div>
+
+      <!-- GIS -->
+      <div class="module-card">
+        <div class="top-stripe" style="background:linear-gradient(90deg,var(--blue),#0090c0);"></div>
+        <div class="icon">🌐</div>
+        <h3>Atom GIS</h3>
+        <div class="tag">Infrastructure Atlas<br>Data Center + Fiber Intelligence</div>
+        <div class="enhances-label">Enhances Telarus Tools</div>
+        <div class="enhances-items">
+          <span>▸ Service Map</span>
+          <span>▸ CableFinder</span>
+        </div>
+        <div class="cap-note">GPU, SOC2, Sovereign filters. Power feasibility analysis. Natural language search over infrastructure data</div>
+        <div class="capex-allocation">
+          <span class="alloc-amt">$450,000</span>
+          <span class="alloc-pct">12%</span>
+        </div>
+      </div>
+
+      <!-- Compare -->
+      <div class="module-card">
+        <div class="top-stripe" style="background:linear-gradient(90deg,var(--pink),var(--orange));"></div>
+        <div class="icon">⚖️</div>
+        <h3>Compare Atom</h3>
+        <div class="tag">Vendor Matrix<br>25 Dimensions × 12 Vendors</div>
+        <div class="enhances-label">Enhances Telarus Tools</div>
+        <div class="enhances-items">
+          <span>▸ Supplier Matrix Pro</span>
+          <span>▸ Pitch Collateral</span>
+        </div>
+        <div class="cap-note">Auto-generated battlecards vs Kore, Zendesk, ServiceNow, MSFT, Google, AWS, IBM</div>
+        <div class="capex-allocation">
+          <span class="alloc-amt">$262,500</span>
+          <span class="alloc-pct">7%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Allocation Bar Chart -->
+    <div class="alloc-bar-section">
+      <div class="alloc-bar-title">Capital Allocation by Module</div>
+      <div class="alloc-row">
+        <span class="alloc-label text-purple">Atom Enterprise</span>
+        <div class="alloc-track"><div class="alloc-fill" style="width:35%;background:linear-gradient(90deg,var(--purple),#a090ff);"></div></div>
+        <span class="alloc-val text-purple">$1.31M · 35%</span>
+      </div>
+      <div class="alloc-row">
+        <span class="alloc-label text-green">Atom Agentic</span>
+        <div class="alloc-track"><div class="alloc-fill" style="width:28%;background:linear-gradient(90deg,var(--green),var(--blue));"></div></div>
+        <span class="alloc-val text-green">$1.05M · 28%</span>
+      </div>
+      <div class="alloc-row">
+        <span class="alloc-label text-orange">Atom IntentIQ</span>
+        <div class="alloc-track"><div class="alloc-fill" style="width:18%;background:linear-gradient(90deg,var(--orange),var(--pink));"></div></div>
+        <span class="alloc-val text-orange">$675K · 18%</span>
+      </div>
+      <div class="alloc-row">
+        <span class="alloc-label text-blue">Atom GIS</span>
+        <div class="alloc-track"><div class="alloc-fill" style="width:12%;background:linear-gradient(90deg,var(--blue),#0090c0);"></div></div>
+        <span class="alloc-val text-blue">$450K · 12%</span>
+      </div>
+      <div class="alloc-row">
+        <span class="alloc-label text-pink">Compare Atom</span>
+        <div class="alloc-track"><div class="alloc-fill" style="width:7%;background:linear-gradient(90deg,var(--pink),var(--orange));"></div></div>
+        <span class="alloc-val text-pink">$262.5K · 7%</span>
+      </div>
+    </div>
+
+    <!-- Terms / Timeline -->
+    <div class="slabel">
+      <span class="pill pill-green">TERMS</span>
+      Delivery, IP & Warranty
+    </div>
+    <div class="capex-terms">
+      <div class="term-card">
+        <div class="term-ico">🏗️</div>
+        <div class="term-val text-green">3–6 Months</div>
+        <div class="term-label">Full build + integration timeline into Telarus Sales Hub</div>
+      </div>
+      <div class="term-card">
+        <div class="term-ico">🛡️</div>
+        <div class="term-val text-purple">90-Day Warranty</div>
+        <div class="term-label">Post-launch support & bug resolution at zero additional cost</div>
+      </div>
+      <div class="term-card">
+        <div class="term-ico">⚡</div>
+        <div class="term-val text-orange">Full IP Ownership</div>
+        <div class="term-label">Telarus retains all rights to custom integration layer permanently</div>
+      </div>
+    </div>
+
+    <!-- Capex vs Opex Math -->
+    <div class="slabel">
+      <span class="pill pill-green">ROI</span>
+      CapEx vs OpEx Break-Even Analysis
+    </div>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Year 1 Cost</th>
+            <th>Year 2 Cost</th>
+            <th>Year 3 Cost</th>
+            <th>3-Year Total</th>
+            <th>vs CapEx Build</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CapEx One-Time Build</strong></td>
+            <td class="text-green">$3,750,000</td>
+            <td class="text-green">$0 license</td>
+            <td class="text-green">$0 license</td>
+            <td class="text-green" style="font-weight:700;">$3,750,000</td>
+            <td class="yes">Baseline</td>
+          </tr>
+          <tr>
+            <td>OpEx: Starter ($7.5K avg)</td>
+            <td>$90,000</td>
+            <td>$90,000</td>
+            <td>$90,000</td>
+            <td>$270,000</td>
+            <td class="text-green">-$3.48M vs CapEx</td>
+          </tr>
+          <tr>
+            <td>OpEx: Professional ($25K)</td>
+            <td>$300,000</td>
+            <td>$300,000</td>
+            <td>$300,000</td>
+            <td>$900,000</td>
+            <td class="text-green">-$2.85M vs CapEx</td>
+          </tr>
+          <tr>
+            <td>OpEx: Enterprise ($65K)</td>
+            <td>$780,000</td>
+            <td>$780,000</td>
+            <td>$780,000</td>
+            <td>$2,340,000</td>
+            <td class="text-green">-$1.41M vs CapEx</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold);font-weight:600;">OpEx: Hybrid (Recommended)</td>
+            <td style="color:var(--gold);">$75,000 POV</td>
+            <td style="color:var(--gold);">$780,000</td>
+            <td style="color:var(--gold);">$0 (→ CapEx)</td>
+            <td style="color:var(--gold);font-weight:700;">$855,000</td>
+            <td class="yes">-$2.895M savings</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- ==================================================
+       PANEL C — HYBRID
+       ================================================== -->
+  <section id="panel-hybrid" class="panel" role="tabpanel">
+
+    <!-- Hero -->
+    <div class="hybrid-hero">
+      <h2>★ The Hybrid Play</h2>
+      <p>Start with <strong style="color:var(--purple);">ATOM Professional at $25K/mo</strong> as a <strong style="color:var(--text);">90-Day Proof-of-Value</strong> — zero upfront risk. Then present the <strong style="color:var(--green);">$3.75M CapEx</strong> build as the <em>"own the stack"</em> upgrade path at contract renewal — or pivot to <strong style="color:var(--gold);">ATOM Enterprise at $65K/mo</strong> for the full platform with zero upfront capital commitment. This is the recommended commercial pitch strategy.</p>
+    </div>
+
+    <!-- Journey Steps -->
+    <div class="slabel">
+      <span class="pill pill-gold">JOURNEY</span>
+      Three-Phase Commercial Pathway
+    </div>
+    <div class="hybrid-journey">
+
+      <!-- Phase 1 -->
+      <div class="journey-step phase-1">
+        <span class="phase-badge">Phase 1 · Months 1–3</span>
+        <h3>90-Day POV Sprint</h3>
+        <div class="j-price">$25K<small style="font-size:var(--text-xs);color:var(--muted);font-weight:400;">/mo</small></div>
+        <span class="j-duration">⏱ 90-Day Proof-of-Value</span>
+        <ul>
+          <li>Deploy ATOM Professional into SolutionVue + GeoQuote</li>
+          <li>Activate IntentIQ + Agentic for live lead scoring</li>
+          <li>Instrument KPIs: quote speed, conversion lift, labor saved</li>
+          <li>Generate ROI case study for exec presentation</li>
+          <li>Low-risk: cancel at 90 days with zero penalty</li>
+        </ul>
+      </div>
+
+      <div class="journey-arrow">→</div>
+
+      <!-- Phase 2 — Decision Fork -->
+      <div class="journey-step phase-2">
+        <span class="phase-badge">Phase 2 · Month 4+ · Decision Fork</span>
+        <h3>Scale or Own — Your Choice</h3>
+        <div class="j-price">$65K<small style="font-size:var(--text-xs);color:var(--muted);font-weight:400;">/mo</small></div>
+        <span class="j-duration">🔀 Enterprise OpEx Path</span>
+        <ul>
+          <li>Upgrade to ATOM Enterprise — full 5-module stack</li>
+          <li>Activate Atom Enterprise governance + on-prem nodes</li>
+          <li>All 5 Telarus Hub integrations go live</li>
+          <li>Zero upfront capital — stay on OpEx model</li>
+          <li>SLA 99.99% + dedicated CSM assigned</li>
+        </ul>
+      </div>
+
+      <div class="journey-arrow">→</div>
+
+      <!-- Phase 3 — CapEx Upgrade -->
+      <div class="journey-step phase-3">
+        <span class="phase-badge">Phase 3 · Year 2+ · Own the Stack</span>
+        <h3>CapEx "Own the Stack" Build</h3>
+        <div class="j-price">$3.75M<small style="font-size:var(--text-xs);color:var(--muted);font-weight:400;"> one-time</small></div>
+        <span class="j-duration">🏆 Strategic Ownership Path</span>
+        <ul>
+          <li>Convert proven ROI into board-level CapEx case</li>
+          <li>Custom-build all 5 modules into Telarus infrastructure</li>
+          <li>Telarus owns the integration IP permanently</li>
+          <li>Eliminate recurring license fees after build</li>
+          <li>3–6 month build · 90-day warranty included</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Financial Math -->
+    <div class="slabel">
+      <span class="pill pill-gold">MATH</span>
+      Hybrid Path Financial Modeling
+    </div>
+    <div class="hybrid-math">
+      <!-- Hybrid Path Cost -->
+      <div class="math-card">
+        <h3>💰 Hybrid Path Total Cost</h3>
+        <div class="math-row"><span class="label">Phase 1: 90-Day POV ($25K × 3 mo)</span><span class="val text-purple">$75,000</span></div>
+        <div class="math-row"><span class="label">Phase 2: Enterprise OpEx ($65K × 12 mo)</span><span class="val text-green">$780,000</span></div>
+        <div class="math-row"><span class="label">Phase 3: CapEx One-Time Build</span><span class="val text-gold">$3,750,000</span></div>
+        <div class="math-row"><span class="label">Post-CapEx: Ongoing License (Year 3+)</span><span class="val text-green">$0/mo</span></div>
+        <div class="math-row total-row"><span class="label">3-Year Total Investment</span><span class="val text-gold">$4,605,000</span></div>
+        <div class="math-row savings-row"><span class="label">vs. 3-yr Enterprise OpEx ($65K/mo)</span><span class="val">-$735K savings</span></div>
+      </div>
+
+      <!-- vs Pure OpEx -->
+      <div class="math-card">
+        <h3>📊 Why Hybrid Wins the Pitch</h3>
+        <div class="math-row"><span class="label">POV entry — decision risk</span><span class="val text-purple">Near Zero</span></div>
+        <div class="math-row"><span class="label">POV sunk cost if cancel</span><span class="val text-green">$75,000 max</span></div>
+        <div class="math-row"><span class="label">CapEx break-even vs Enterprise OpEx</span><span class="val text-gold">~Month 58</span></div>
+        <div class="math-row"><span class="label">IP ownership value (perpetual)</span><span class="val text-green">Telarus retains</span></div>
+        <div class="math-row"><span class="label">Flexibility to stay OpEx</span><span class="val text-purple">Always open</span></div>
+        <div class="math-row"><span class="label">Board-level narrative</span><span class="val text-gold">Proven ROI → CapEx</span></div>
+        <div class="math-row"><span class="label">Sales rep productivity gain</span><span class="val text-green">3× faster quoting</span></div>
+        <div class="math-row total-row"><span class="label">Recommended Pitch Strategy</span><span class="val text-gold">★ POV → Enterprise → Own</span></div>
+      </div>
+    </div>
+
+    <!-- Pitch Talking Points -->
+    <div class="pitch-points">
+      <h3>★ The Hybrid Pitch — Talking Points for Telarus Executives</h3>
+      <div class="pitch-grid">
+        <div class="pitch-item">
+          <span class="pitch-num">1</span>
+          <div class="pitch-text"><strong>"Start at $25K/mo — no commitment risk."</strong> The 90-day POV is designed to prove ROI before any long-term commitment. We instrument it from day one with measurable KPIs that map directly to Telarus revenue.</div>
+        </div>
+        <div class="pitch-item">
+          <span class="pitch-num">2</span>
+          <div class="pitch-text"><strong>"At month 4, you have optionality."</strong> Either scale on OpEx at $65K/mo — the full Enterprise stack with zero upfront capital — or use the proven ROI data to build a $3.75M CapEx case to own the platform permanently.</div>
+        </div>
+        <div class="pitch-item">
+          <span class="pitch-num">3</span>
+          <div class="pitch-text"><strong>"The CapEx path eliminates license fees forever."</strong> After the one-time build, Telarus owns the integration IP. No recurring ATOM AI license. The stack is yours to operate, white-label, and resell.</div>
+        </div>
+        <div class="pitch-item">
+          <span class="pitch-num">4</span>
+          <div class="pitch-text"><strong>"The OpEx Enterprise path is still superior to doing nothing."</strong> $65K/mo unlocks the full platform — 5 modules, 99.99% SLA, RBAC governance — with zero capital exposure. Every quarter you have the option to convert to CapEx.</div>
+        </div>
+        <div class="pitch-item">
+          <span class="pitch-num">5</span>
+          <div class="pitch-text"><strong>"This is how Telarus becomes the AI-native distributor in the channel."</strong> ATOM wraps every Hub tool in an AI layer — turning passive tools into active agents that quote, propose, and close deals autonomously.</div>
+        </div>
+        <div class="pitch-item">
+          <span class="pitch-num">6</span>
+          <div class="pitch-text"><strong>"Your partners win more deals."</strong> The ROI flows downstream. Telarus partners using ATOM-enhanced Hub tools see 3× faster quoting, 40% less pre-sales labor, and higher win rates — driving your GMV growth.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decision Matrix -->
+    <div class="slabel">
+      <span class="pill pill-gold">DECISION</span>
+      Which Path Is Right for Telarus?
+    </div>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Decision Criterion</th>
+            <th>OpEx Professional ($25K)</th>
+            <th>OpEx Enterprise ($65K)</th>
+            <th>CapEx One-Time ($3.75M)</th>
+            <th class="featured-col">★ Hybrid (Recommended)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Upfront capital required</td><td class="yes">None</td><td class="yes">None</td><td class="no">$3.75M</td><td class="featured-col yes">$75K POV only</td></tr>
+          <tr><td>Decision risk</td><td class="yes">Very Low</td><td>Moderate</td><td class="no">High</td><td class="featured-col yes">Near Zero</td></tr>
+          <tr><td>Full 5-module stack</td><td class="no">✗ Limited</td><td class="yes">✓</td><td class="yes">✓ Custom build</td><td class="featured-col yes">✓ Phase 2+</td></tr>
+          <tr><td>IP ownership</td><td class="no">Nirmata (ATOM)</td><td class="no">Nirmata (ATOM)</td><td class="yes">Telarus owns integration</td><td class="featured-col yes">Telarus eventually owns</td></tr>
+          <tr><td>3-year total cost</td><td>$900K</td><td>$2.34M</td><td>$3.75M</td><td class="featured-col text-gold">$4.6M (own forever)</td></tr>
+          <tr><td>Flexibility to change</td><td class="yes">Maximum</td><td class="yes">High</td><td class="limited">Low after build</td><td class="featured-col yes">Maximum</td></tr>
+          <tr><td>Board-level narrative</td><td class="limited">Pilot story</td><td class="limited">OpEx AI budget</td><td class="yes">Strategic IP asset</td><td class="featured-col yes">Proven ROI → Own the stack</td></tr>
+          <tr><td>Recommended if...</td><td>Testing the waters</td><td>Fast full deployment</td><td>Committed day 1</td><td class="featured-col" style="color:var(--gold);font-weight:600;">POV → Enterprise → CapEx</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- ==================== BOTTOM CTA ==================== -->
+  <div class="bottom-cta">
+    <h3>Ready to Deploy the AI Nervous System for Telarus?</h3>
+    <p>Start the 90-day POV at $25K/mo or schedule an architecture review with the ATOM AI team.<br>All three commercial pathways remain open — the hybrid play is the lowest-risk highest-ROI entry.</p>
+    <div class="cta-btns">
+      <button class="btn btn-purple" onclick="switchTab('hybrid', document.querySelectorAll('.tab-btn')[2])">★ View Hybrid Pitch</button>
+      <button class="btn btn-green" onclick="switchTab('capex', document.querySelectorAll('.tab-btn')[1])">CapEx Build Options</button>
+      <button class="btn btn-ghost" onclick="switchTab('opex', document.querySelectorAll('.tab-btn')[0])">View All Tiers</button>
+    </div>
   </div>
 
-  <!-- 5 ATOM MODULES WITH CAPEX -->
-  <div class="slabel green"><span class="badge">CAPEX</span> $3.75M One-Time Build &mdash; Proportional Allocation Across 5 Modules</div>
-  <div class="grid5">
-    <!-- ENTERPRISE -->
-    <div class="card">
-      <div class="ico">&#129504;</div>
-      <h3>Atom Enterprise</h3>
-      <div class="tag">VPC &middot; On-Prem &middot; Edge<br>5-Layer Governance Framework</div>
-      <div class="enh">
-        <div class="enh-label">Enhances</div>
-        <p><b>Supplier Matrix Pro</b></p>
-        <p><b>Service Map</b></p>
-        <p>RBAC, audit trails, Akamai edge, model-agnostic runtime, zero-training guarantee</p>
-      </div>
-      <div class="capex-bar">
-        <div class="amt">$1,312,500</div>
-        <div class="pct">35%</div>
-      </div>
-    </div>
-    <!-- AGENTIC -->
-    <div class="card">
-      <div class="ico">&#9889;</div>
-      <h3>Atom Agentic</h3>
-      <div class="tag">Autonomous Agents<br>Brain &rarr; Spine &rarr; Worker</div>
-      <div class="enh">
-        <div class="enh-label">Enhances</div>
-        <p><b>SolutionVue QSAs</b></p>
-        <p><b>CableFinder / GeoQuote</b></p>
-        <p>Voice + workflow agents orchestrate quote-to-proposal pipeline end-to-end</p>
-      </div>
-      <div class="capex-bar">
-        <div class="amt">$1,050,000</div>
-        <div class="pct">28%</div>
-      </div>
-    </div>
-    <!-- INTENTIQ -->
-    <div class="card">
-      <div class="ico">&#127919;</div>
-      <h3>Atom IntentIQ</h3>
-      <div class="tag">Real-Time Buyer Intent<br>GPT-4o Pipeline Intelligence</div>
-      <div class="enh">
-        <div class="enh-label">Enhances</div>
-        <p><b>SolutionVue QSAs</b></p>
-        <p><b>Lead Qualification</b></p>
-        <p>Scores deals instantly. Auto-generates follow-ups and proposal language</p>
-      </div>
-      <div class="capex-bar">
-        <div class="amt">$675,000</div>
-        <div class="pct">18%</div>
-      </div>
-    </div>
-    <!-- GIS -->
-    <div class="card">
-      <div class="ico">&#127760;</div>
-      <h3>Atom GIS</h3>
-      <div class="tag">Infrastructure Atlas<br>Data Center + Fiber Intel</div>
-      <div class="enh">
-        <div class="enh-label">Enhances</div>
-        <p><b>Service Map</b></p>
-        <p><b>CableFinder</b></p>
-        <p>GPU, SOC2, Sovereign filters. Power feasibility. NL search</p>
-      </div>
-      <div class="capex-bar">
-        <div class="amt">$450,000</div>
-        <div class="pct">12%</div>
-      </div>
-    </div>
-    <!-- COMPARE -->
-    <div class="card">
-      <div class="ico">&#9876;&#65039;</div>
-      <h3>Compare Atom</h3>
-      <div class="tag">Vendor Matrix<br>25 Dimensions &times; 12 Vendors</div>
-      <div class="enh">
-        <div class="enh-label">Enhances</div>
-        <p><b>Supplier Matrix Pro</b></p>
-        <p><b>Pitch Collateral</b></p>
-        <p>Auto-generated battlecards vs Kore, Zendesk, ServiceNow, MSFT, Google, AWS, IBM</p>
-      </div>
-      <div class="capex-bar">
-        <div class="amt">$262,500</div>
-        <div class="pct">7%</div>
-      </div>
-    </div>
-  </div>
+  <div class="foot">ATOM AI × TELARUS &nbsp;·&nbsp; CONFIDENTIAL &nbsp;·&nbsp; NIRMATA HOLDINGS &nbsp;·&nbsp; 2025</div>
 
-  <div class="capex-summary">
-    <div class="big">$3,750,000</div>
-    <div class="detail">
-      <strong>Total CapEx &mdash; One-Time Custom Build</strong><br>
-      Full integration of all 5 Atom modules into Telarus Sales Hub<br>
-      Telarus owns custom integration IP &middot; 3&ndash;6 month build &middot; 90-day warranty
-    </div>
-  </div>
+</div>
 
-  <!-- OPEX SUBSCRIPTION TIERS -->
-  <div class="slabel"><span class="badge">OPEX</span> ATOM Monthly Subscription Tiers</div>
-  <div class="tiers">
-    <div class="tier">
-      <h4>Starter</h4>
-      <div class="price">$5K&ndash;$10K<small>/mo</small></div>
-      <div class="ann">$60K&ndash;$120K/yr</div>
-      <div class="desc">Mid-market &middot; Up to 3 agents &middot; Cloud deploy &middot; 100K interactions/mo &
-        
+<script>
+function switchTab(panel, btn) {
+  // Hide all panels
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  // Deactivate all buttons
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active-opex','active-capex','active-hybrid');
+    b.setAttribute('aria-selected','false');
+  });
+  // Show target panel
+  document.getElementById('panel-' + panel).classList.add('active');
+  // Activate button
+  if (btn) {
+    const cls = panel === 'opex' ? 'active-opex' : panel === 'capex' ? 'active-capex' : 'active-hybrid';
+    btn.classList.add(cls);
+    btn.setAttribute('aria-selected','true');
+  }
+  // Scroll to top of panels
+  document.querySelector('.tab-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Animate allocation bars on tab switch
+document.addEventListener('DOMContentLoaded', () => {
+  const fills = document.querySelectorAll('.alloc-fill');
+  fills.forEach(f => {
+    const target = f.style.width;
+    f.style.width = '0';
+    setTimeout(() => { f.style.width = target; }, 200);
+  });
+});
+</script>
+</body>
+</html>
