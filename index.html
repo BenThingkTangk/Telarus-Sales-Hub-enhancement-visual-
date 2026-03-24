@@ -3,134 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ATOM AI x TELARUS</title>
+<title>Atom AI × Telarus — Pitch Visual</title>
 <style>
+:root{--purple:#7c6cff;--green:#00d4aa;--orange:#ff8c42;--blue:#00b4d8;--pink:#ff6b9d;--bg:#0a0a14;--card:#0e0e1c;--border:#2a2a50;--muted:#666;--text:#ccc}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#08081a;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;line-height:1.4}
-.pg{max-width:1200px;margin:0 auto;padding:0 20px 60px}
-nav{position:sticky;top:0;z-index:100;background:rgba(8,8,26,.93);backdrop-filter:blur(12px);border-bottom:1px solid #1a1a35;padding:10px 24px;display:flex;justify-content:space-between;align-items:center}
-nav .logo{font-size:14px;font-weight:800;letter-spacing:1px;color:#fff}
-nav .logo span{color:#7c6cff}
-nav a{color:#888;font-size:9px;text-decoration:none;padding:4px 10px;border:1px solid #2a2a45;border-radius:20px;margin-left:5px}
-nav a:hover{color:#fff;border-color:#7c6cff}
-.hero{text-align:center;padding:44px 0 36px;position:relative}
-.hero .k{color:#9a8fff;font-size:10px;text-transform:uppercase;letter-spacing:4px;margin-bottom:8px}
-.hero h1{font-size:38px;font-weight:900;margin-bottom:6px}
-.hero h1 span{color:#7c6cff}
-.hero .sub{color:#888;font-size:13px;margin-bottom:16px}
-.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.pill{font-size:9px;padding:5px 14px;border-radius:20px;border:1px solid #2a2a45;color:#aaa;background:#0d0d20}
-.pill b{color:#7c6cff}
-.pill.g b{color:#00d4aa}
-.pill.gd b{color:#ffd700}
-.sh{display:flex;align-items:center;gap:10px;margin:36px 0 10px;padding-bottom:8px;border-bottom:1px solid #1a1a35}
-.sh h2{font-size:18px;font-weight:800}
-.sh.a h2{color:#7c6cff}
-.sh.b h2{color:#00d4aa}
-.sh.c h2{color:#ffd700}
-.bdg{font-size:8px;padding:3px 12px;border-radius:12px;letter-spacing:1.2px;font-weight:800;text-transform:uppercase;display:inline-block}
-.bdg.a{background:#7c6cff;color:#fff}
-.bdg.b{background:#00d4aa;color:#000}
-.bdg.c{background:#ffd700;color:#000}
-.shsub{font-size:11px;color:#888;margin-bottom:14px}
-.flow{display:flex;justify-content:center;gap:6px;margin-bottom:24px;flex-wrap:wrap;align-items:center}
-.fs{background:#12122a;border:1px solid #2a2a45;border-radius:8px;padding:8px 16px;font-size:10px;color:#aaa;text-align:center;min-width:115px}
-.fs:hover{border-color:#7c6cff}
-.fs strong{color:#7c6cff;display:block;font-size:9px;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:2px}
-.aw{color:#444;font-size:18px}
-.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px}
-.mc{background:linear-gradient(155deg,#131230,#0d0d20);border:1px solid #252545;border-radius:12px;padding:14px 10px 10px;text-align:center;position:relative;overflow:hidden}
-.mc:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.mc::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:44px;height:3px;border-radius:0 0 4px 4px}
-.mc:nth-child(1)::before{background:#7c6cff}
-.mc:nth-child(2)::before{background:#00d4aa}
-.mc:nth-child(3)::before{background:#ff8c42}
-.mc:nth-child(4)::before{background:#00b4d8}
-.mc:nth-child(5)::before{background:#ff6b9d}
-.mc .ico{font-size:24px;margin-bottom:5px}
-.mc h3{font-size:12px;font-weight:700;margin-bottom:3px}
-.mc .tg{font-size:9px;color:#666;line-height:1.3;margin-bottom:8px}
-.mc .en{background:#0a0a18;border:1px solid #20203e;border-radius:8px;padding:7px}
-.mc .el{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
-.mc .en p{font-size:8px;color:#aaa;line-height:1.35;margin:1px 0}
-.mc .en b{color:#7c6cff}
-.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
-.t{background:#0d0d20;border:1px solid #252545;border-radius:12px;padding:16px 12px 12px;position:relative}
-.t:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.t.rc{border-color:#7c6cff;box-shadow:0 0 20px rgba(124,108,255,.1)}
-.t.rc2{border-color:#00d4aa;box-shadow:0 0 20px rgba(0,212,170,.08)}
-.rt{position:absolute;top:10px;right:10px;font-size:6px;padding:2px 8px;border-radius:8px;text-transform:uppercase;letter-spacing:.8px;font-weight:800}
-.rt.pv{background:#7c6cff;color:#fff}
-.rt.bt{background:#00d4aa;color:#000}
-.t h4{font-size:13px;font-weight:800;text-align:center}
-.t .pr{text-align:center;margin:6px 0 2px}
-.t .pr .n{font-size:24px;font-weight:900;color:#7c6cff}
-.t .pr small{font-size:9px;color:#888;font-weight:400}
-.t .an{font-size:8px;color:#555;text-align:center;margin-bottom:5px}
-.t .tgt{font-size:9px;color:#ff8c42;text-align:center;font-style:italic;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #1a1a35}
-.t ul{list-style:none;padding:0}
-.t li{font-size:9px;color:#bbb;padding:3px 0 3px 14px;position:relative;line-height:1.35}
-.t li::before{content:"\203A";position:absolute;left:2px;color:#7c6cff;font-weight:700;font-size:11px}
-.t li.hl{color:#00d4aa;font-weight:700}
-.t .gm{font-size:8px;color:#555;margin-top:8px;text-align:center;border-top:1px solid #1a1a35;padding-top:6px}
-.t .gm strong{color:#00d4aa}
-.t .md{margin-top:6px;padding-top:6px;border-top:1px dashed #1a1a35;text-align:center}
-.t .md .mh{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:3px}
-.t .md span{font-size:8px;color:#00d4aa;line-height:1.6}
-.nlb{font-size:10px;color:#888;margin:14px 0 8px;font-style:italic}
-.nrr{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:10px}
-.nr{background:#0d0d20;border:1px solid #252545;border-radius:10px;padding:10px;text-align:center}
-.nr:hover{border-color:#7c6cff}
-.nr h5{font-size:9px;font-weight:700;color:#7c6cff;margin-bottom:3px}
-.nr .np{font-size:14px;font-weight:800;color:#fff;margin:2px 0}
-.nr .nd{font-size:7px;color:#888;line-height:1.3}
-.nr .du{font-size:7px;color:#ff8c42;margin-top:3px}
-.cxg{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:10px}
-.cxc{background:#0d0d20;border:1px solid #252545;border-radius:12px;padding:12px;text-align:center}
-.cxc:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.cxc h5{font-size:11px;font-weight:700;margin-bottom:4px}
-.cxc .am{font-size:20px;font-weight:900;color:#00d4aa;margin:4px 0}
-.cxc .pb{height:4px;background:#1a1a35;border-radius:4px;margin:6px 0;overflow:hidden}
-.cxc .pf{height:100%;background:#00d4aa;border-radius:4px}
-.cxc .pc{font-size:9px;color:#888;margin-bottom:6px}
-.cxc .dl{font-size:8px;color:#aaa;line-height:1.4;text-align:left}
-.cxt{display:flex;justify-content:center;gap:24px;align-items:center;padding:14px;border:1px solid rgba(0,212,170,.2);border-radius:12px;background:linear-gradient(135deg,#0a1a14,#08081a);margin-bottom:10px}
-.cxt .bg{font-size:32px;font-weight:900;color:#00d4aa}
-.cxt .inf{font-size:10px;color:#888;line-height:1.5}
-.cxt .inf strong{color:#fff}
-.hyb{border:2px solid #ffd700;border-radius:16px;padding:24px 20px 20px;background:linear-gradient(140deg,#14140e,#08081a);margin-bottom:20px;position:relative}
-.hybt{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#ffd700;color:#000;font-size:9px;font-weight:900;padding:4px 18px;border-radius:12px;text-transform:uppercase;letter-spacing:2px;white-space:nowrap}
-.hybd{text-align:center;font-size:11px;color:#aaa;margin:8px auto 20px;max-width:720px}
-.hf{display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;align-items:stretch;margin-bottom:16px}
-.hs{background:#0d0d20;border-radius:12px;padding:14px 12px;text-align:center}
-.hs.s1{border:2px solid #7c6cff}
-.hs.s2{border:2px solid #ffd700}
-.hs.s3{border:2px solid #00d4aa}
-.hs .ph{font-size:7px;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px}
-.hs.s1 .ph{color:#7c6cff}
-.hs.s2 .ph{color:#ffd700}
-.hs.s3 .ph{color:#00d4aa}
-.hs h4{font-size:14px;font-weight:800;margin-bottom:3px}
-.hs .hp{font-size:22px;font-weight:900;margin:5px 0 2px}
-.hs.s1 .hp{color:#7c6cff}
-.hs.s2 .hp{color:#ffd700}
-.hs.s3 .hp{color:#00d4aa}
-.hs .hp small{font-size:9px;color:#888;font-weight:400}
-.hs .dr{font-size:8px;color:#ff8c42;margin-bottom:6px}
-.hs ul{list-style:none;padding:0;text-align:left}
-.hs li{font-size:8px;color:#bbb;padding:2px 0 2px 10px;position:relative;line-height:1.3}
-.hs li::before{content:"\203A";position:absolute;left:0;color:#ffd700;font-weight:700}
-.ha{display:flex;align-items:center;justify-content:center;color:#ffd700;font-size:28px}
-.hor{text-align:center;margin:12px 0;font-size:11px;color:#888}
-.hor strong{color:#ffd700}
-.halt{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.hab{border:1px solid #252545;border-radius:12px;padding:14px;background:#0d0d20;text-align:center}
-.hab h5{font-size:11px;margin-bottom:3px}
-.hab.x h5{color:#ffd700}
-.hab.y h5{color:#00d4aa}
-.hab .ap{font-size:18px;font-weight:900;margin:2px 0}
-.hab.x .ap{color:#ffd700}
-.hab.y .ap{color:#00d4aa}
-.hab .ap small{font-size:8px;color:#888;font-weight:400}
-.hab p{font-size:8px;color:#aaa;line-height:1.35;margin-top:4px}
-.hab p strong{color:#
+body{background:var(--bg);color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:24px 18px;line-height:1.4}
+.page{max-width:1160px;margin:0 auto}
+
+/* HEADER */
+.header{text-align:center;margin-bottom:18px}
+.header .sub{color:#9a8fff;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin-bottom:4px}
+.header h1{font-size:28px;font-weight:800;letter-spacing:.5px}
+.header h1 span{color:var(--purple)}
+.header p{color:var(--muted);font-size:12px;margin-top:3px}
+
+/* SECTION LABELS */
+.slabel{color:var(--purple);font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin:22px 0 10px;padding-bottom:5px;border-bottom:1px solid #1e1e38;display:flex;align-items:center;gap:8px}
+.slabel.green{color:var(--green);border-color:#0d3a2a}
+.slabel .badge{background:var(--purple);color:#fff;font-size:8px;padding:2px 8px;border-radius:10px;letter-spacing:1px}
+.slabel.green .badge{background:var(--green);color:#000}
+
+/* FLOW BAR */
+.flow{display:flex;justify-content:center;gap:5px;margin-bottom:18px;flex-wrap:wrap;align-items:center}
+.fs{background:#161628;border:1px solid #2a2a45;border-radius:7px;padding:8px 14px;font-size:10px;color:#aaa;text-align:center;min-width:110px}
+.fs strong{color:var(--purple);display:block;font-size:9px;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.arr{color:#444;font-size:18px}
+
+/* 5-CARD MODULE GRID */
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:6px}
+.card{background:linear-gradient(150deg,#131228,var(--card));border:1px solid var(--border);border-radius:12px;padding:14px 10px 10px;text-align:center;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:40px;height:3px;border-radius:0 0 4px 4px}
+.card:nth-child(1)::before{background:var(--purple)}
+.card:nth-child(2)::before{background:var(--green)}
+.card:nth-child(3)::before{background:var(--orange)}
+.card:nth-child(4)::before{background:var(--blue)}
+.card:nth-child(5)::before{background:var(--pink)}
+.ico{font-size:22px;margin-bottom:5px}
+.card h3{font-size:12px;font-weight:700;margin-bottom:2px}
+.tag{font-size:9px;color:var(--muted);line-height:1.3;margin-bottom:8px}
+.enh{background:#0b0b18;border:1px solid #22224a;border-radius:7px;padding:7px}
+.enh-label{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.enh p{font-size:9px;color:#aaa;line-height:1.4;margin:1px 0}
+.enh b{color:var(--purple);font-weight:600}
+.capex-bar{display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:1px dashed #2a2a50}
+.capex-bar .amt{color:var(--green);font-weight:800;font-size:12px}
+.capex-bar .pct{color:#555;font-size:9px}
+
+/* SUBSCRIPTION TIERS */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:6px}
+.tier{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 10px;text-align:center}
+.tier.rec{border-color:var(--purple);box-shadow:0 0 16px rgba(124,108,255,.12)}
+.tier h4{font-size:12px;font-weight:700;margin-bottom:1px}
+.tier .price{color:var(--purple);font-size:18px;font-weight:800;margin:4px 0 2px}
+.tier .price small{font-size:9px;color:#888;font-weight:400}
+.tier .ann{font-size:9px;color:#555;margin-bottom:6px}
+.tier .desc{font-size:9px;color:#888;line-height:1.35;margin-bottom:6px}
+.tier .mods{font-size:8px;color:#555;line-height:1.4}
+.tier .mods span{color:var(--green)}
+.rec-badge{background:var(--purple);color:#fff;font-size:7px;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:1px;display:inline-block;margin-bottom:4px}
+
+/* CAPEX TOTAL */
+.capex-summary{display:flex;justify-content:center;gap:20px;align-items:center;padding:14px;border:1px solid rgba(0,212,170,.2);border-radius:12px;background:linear-gradient(135deg,#0a1a14,#0a0a14);margin-bottom:6px}
+.capex-summary .big{font-size:28px;font-weight:800;color:var(--green)}
+.capex-summary .detail{font-size:10px;color:#888;line-height:1.5}
+.capex-summary .detail strong{color:#fff}
+
+/* SIDE BY SIDE */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.duo-box{border:1px solid var(--border);border-radius:12px;padding:14px;background:var(--card)}
+.duo-box h3{font-size:13px;margin-bottom:8px}
+.duo-box.opex h3{color:var(--purple)}
+.duo-box.capex h3{color:var(--green)}
+.duo-box table{width:100%;border-collapse:collapse}
+.duo-box td{font-size:9px;padding:4px 0;color:#aaa;border-bottom:1px solid #1a1a30}
+.duo-box td:first-child{color:#888;width:40%}
+.duo-box td strong{color:#fff}
+
+/* BOTTOM */
+.bot{text-align:center;padding:14px 20px;border:1px solid #1e1e38;border-radius:12px;background:var(--card);margin-bottom:10px}
+.bot p{font-size:11px;color:#999;line-height:1.7}
+.bot strong{color:#fff}
+.foot{text-align:center;font-size:9px;color:#444;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="sub">Telarus Sales Hub Enhancement</div>
+    <h1>ATOM AI <span>&times;</span> TELARUS</h1>
+    <p>The AI Nervous System Around Telarus Hub Tools &mdash; OpEx &amp; CapEx Options</p>
+  </div>
+
+  <!-- SALES LIFECYCLE FLOW -->
+  <div class="flow">
+    <div class="fs"><strong>Discovery</strong>SolutionVue + IntentIQ</div>
+    <div class="arr">&rarr;</div>
+    <div class="fs"><strong>Design</strong>Service Map + Atom GIS</div>
+    <div class="arr">&rarr;</div>
+    <div class="fs"><strong>Quote</strong>GeoQuote + Agentic</div>
+    <div class="arr">&rarr;</div>
+    <div class="fs"><strong>Propose</strong>Supplier Matrix + Compare</div>
+    <div class="arr">&rarr;</div>
+    <div class="fs"><strong>Execute</strong>Enterprise Governance</div>
+  </div>
+
+  <!-- 5 ATOM MODULES WITH CAPEX -->
+  <div class="slabel green"><span class="badge">CAPEX</span> $3.75M One-Time Build &mdash; Proportional Allocation Across 5 Modules</div>
+  <div class="grid5">
+    <!-- ENTERPRISE -->
+    <div class="card">
+      <div class="ico">&#129504;</div>
+      <h3>Atom Enterprise</h3>
+      <div class="tag">VPC &middot; On-Prem &middot; Edge<br>5-Layer Governance Framework</div>
+      <div class="enh">
+        <div class="enh-label">Enhances</div>
+        <p><b>Supplier Matrix Pro</b></p>
+        <p><b>Service Map</b></p>
+        <p>RBAC, audit trails, Akamai edge, model-agnostic runtime, zero-training guarantee</p>
+      </div>
+      <div class="capex-bar">
+        <div class="amt">$1,312,500</div>
+        <div class="pct">35%</div>
+      </div>
+    </div>
+    <!-- AGENTIC -->
+    <div class="card">
+      <div class="ico">&#9889;</div>
+      <h3>Atom Agentic</h3>
+      <div class="tag">Autonomous Agents<br>Brain &rarr; Spine &rarr; Worker</div>
+      <div class="enh">
+        <div class="enh-label">Enhances</div>
+        <p><b>SolutionVue QSAs</b></p>
+        <p><b>CableFinder / GeoQuote</b></p>
+        <p>Voice + workflow agents orchestrate quote-to-proposal pipeline end-to-end</p>
+      </div>
+      <div class="capex-bar">
+        <div class="amt">$1,050,000</div>
+        <div class="pct">28%</div>
+      </div>
+    </div>
+    <!-- INTENTIQ -->
+    <div class="card">
+      <div class="ico">&#127919;</div>
+      <h3>Atom IntentIQ</h3>
+      <div class="tag">Real-Time Buyer Intent<br>GPT-4o Pipeline Intelligence</div>
+      <div class="enh">
+        <div class="enh-label">Enhances</div>
+        <p><b>SolutionVue QSAs</b></p>
+        <p><b>Lead Qualification</b></p>
+        <p>Scores deals instantly. Auto-generates follow-ups and proposal language</p>
+      </div>
+      <div class="capex-bar">
+        <div class="amt">$675,000</div>
+        <div class="pct">18%</div>
+      </div>
+    </div>
+    <!-- GIS -->
+    <div class="card">
+      <div class="ico">&#127760;</div>
+      <h3>Atom GIS</h3>
+      <div class="tag">Infrastructure Atlas<br>Data Center + Fiber Intel</div>
+      <div class="enh">
+        <div class="enh-label">Enhances</div>
+        <p><b>Service Map</b></p>
+        <p><b>CableFinder</b></p>
+        <p>GPU, SOC2, Sovereign filters. Power feasibility. NL search</p>
+      </div>
+      <div class="capex-bar">
+        <div class="amt">$450,000</div>
+        <div class="pct">12%</div>
+      </div>
+    </div>
+    <!-- COMPARE -->
+    <div class="card">
+      <div class="ico">&#9876;&#65039;</div>
+      <h3>Compare Atom</h3>
+      <div class="tag">Vendor Matrix<br>25 Dimensions &times; 12 Vendors</div>
+      <div class="enh">
+        <div class="enh-label">Enhances</div>
+        <p><b>Supplier Matrix Pro</b></p>
+        <p><b>Pitch Collateral</b></p>
+        <p>Auto-generated battlecards vs Kore, Zendesk, ServiceNow, MSFT, Google, AWS, IBM</p>
+      </div>
+      <div class="capex-bar">
+        <div class="amt">$262,500</div>
+        <div class="pct">7%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="capex-summary">
+    <div class="big">$3,750,000</div>
+    <div class="detail">
+      <strong>Total CapEx &mdash; One-Time Custom Build</strong><br>
+      Full integration of all 5 Atom modules into Telarus Sales Hub<br>
+      Telarus owns custom integration IP &middot; 3&ndash;6 month build &middot; 90-day warranty
+    </div>
+  </div>
+
+  <!-- OPEX SUBSCRIPTION TIERS -->
+  <div class="slabel"><span class="badge">OPEX</span> ATOM Monthly Subscription Tiers</div>
+  <div class="tiers">
+    <div class="tier">
+      <h4>Starter</h4>
+      <div class="price">$5K&ndash;$10K<small>/mo</small></div>
+      <div class="ann">$60K&ndash;$120K/yr</div>
+      <div class="desc">Mid-market &middot; Up to 3 agents &middot; Cloud deploy &middot; 100K interactions/mo &
+        
